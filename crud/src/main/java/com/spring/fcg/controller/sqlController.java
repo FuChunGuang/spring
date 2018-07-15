@@ -44,7 +44,6 @@ public class sqlController extends BaseController {
 	@GetMapping("/demo4")
 	public Object upddateDemo3() {
 		Demo1 map =(Demo1)session.selectOne("com.spring.fcg.mapper.Demo1Mapper.getDemo1ById","2");
-		System.out.println("111");
 		return "222"+map.getName();
 	}
 }
