@@ -64,6 +64,6 @@ public class sqlController extends BaseController {
 		} catch (Exception e) {
 			throw new RuntimeException();
 		}
-		return "222";
+		return a+1;
 	}
 }
