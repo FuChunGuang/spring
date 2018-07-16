@@ -11,7 +11,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.fcg.dao.Demo1Dao;
 import com.spring.fcg.dao.DemoDao;
@@ -24,6 +26,8 @@ import com.spring.fcg.service.Demo1Service;
 @SuppressWarnings("all")
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
+@Rollback(false)
 public class CrudApplicationTests {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -72,8 +76,25 @@ public class CrudApplicationTests {
 	public void mapper() {
 		logger.debug("mapper"+demo1Mapper.getDemo1ById("2"));
 	}
-	@Test
+//	@Test
 	public void sqlSession() {
 		logger.debug("sqlSession"+session.selectOne("com.spring.fcg.mapper.Demo1Mapper.getDemo1ById","2"));
+	}
+	/**
+	 * 
+	 *@title:	Transactional
+	 *@Description:	测试事务是否回滚
+	 *@author:	FuChunGuang
+	 *@Data:	2018年7月16日上午8:21:34
+	 *void
+	 *@throws:
+	 *@version:	V1.0
+	 */
+	@Test
+	public void Transactional() {
+		Demo1 demo1=new Demo1("3","小浣熊");
+//		jdbcTemplate.update("update demo1 set name='小浣熊'  WHERE id= '1' ");
+		
+		session.update("com.spring.fcg.mapper.Demo1Mapper.upName",demo1);
 	}
 }

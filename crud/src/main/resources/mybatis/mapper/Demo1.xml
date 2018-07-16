@@ -16,4 +16,7 @@
     <select id="getDemo1ById" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT * FROM demo1 WHERE id=#{id}
     </select>
+    <update id="upName"  parameterType="com.spring.fcg.entity.Demo1" >
+        update demo1 set name=#{name} WHERE id=#{id}
+    </update>
 </mapper>

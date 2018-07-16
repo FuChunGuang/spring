@@ -25,7 +25,17 @@ public class Demo1 extends Model<Demo1> {
     private String name;
 
 
-    public String getId() {
+    public Demo1() {
+		super();
+	}
+
+	public Demo1(String id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	public String getId() {
         return id;
     }
 
