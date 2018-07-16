@@ -26,7 +26,6 @@ import com.spring.fcg.service.Demo1Service;
 @SuppressWarnings("all")
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Transactional
 @Rollback(false)
 public class CrudApplicationTests {
 	@Autowired
