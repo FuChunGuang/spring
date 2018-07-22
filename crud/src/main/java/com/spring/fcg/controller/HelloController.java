@@ -17,4 +17,14 @@ public class HelloController {
 		map.put("demo", "11111");
 		return "demo";
 	}
+	@RequestMapping("/login")
+	public String login() {
+		
+		return "html/login";
+	}
+	@RequestMapping("/index")
+	public String index() {
+		
+		return "html/index";
+	}
 }

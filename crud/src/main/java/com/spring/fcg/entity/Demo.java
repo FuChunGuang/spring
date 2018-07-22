@@ -1,9 +1,7 @@
 package com.spring.fcg.entity;
 
 import java.io.Serializable;
-
 import com.baomidou.mybatisplus.activerecord.Model;
-
 public class Demo extends Model<Demo> { 
 	private static final long serialVersionUID = 7126687906392571498L;
 	private String name;
