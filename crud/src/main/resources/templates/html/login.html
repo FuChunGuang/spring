@@ -4,8 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
 <title>登陆页面</title>
 <!-- Bootstrap core CSS -->
 <link href="webjars/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -15,17 +13,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12">
-				<form class="form-horizontal" action="index">
+				<form class="form-horizontal" th:action="@{index}" method="post" >
 					<div class="control-group">
-						<label class="control-label" for="inputEmail">邮箱</label>
+						<label class="control-label" for="username">邮箱</label>
 						<div class="controls">
-							<input id="inputEmail" type="text" />
+							<input  type="text" name="username"/>
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="inputPassword">密码</label>
+						<label class="control-label" for="password">密码</label>
 						<div class="controls">
-							<input id="inputPassword" type="password" />
+							<input  type="password" name="password"/>
 						</div>
 					</div>
 					<div class="control-group">
