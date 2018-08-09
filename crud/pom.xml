@@ -23,36 +23,43 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<!-- 默认使用Thymeleaf 2.0.0.RELEASE,这里需要使用Thymeleaf 3版本 -->
+		<!-- 低版本的 Thymeleaf 不能解析 HTML5 格式的 HTML 代码，而是把 HTML 当成 XML 解析 -->
 		<thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
 		<!-- 布局功能的支持程序 thymeleaf3主程序 layout2以上版本 -->
 		<thymeleaf-layout-dialect.version>2.2.1</thymeleaf-layout-dialect.version>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
+		<!-- 基础组件 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<!-- 测试组件 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- thymeleaf模板引擎 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<!-- 阿里druid数据源 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.1.10</version>
 		</dependency>
+		<!-- jquery，前端引用方式src=webjars/jquery/3.3.1/jquery.min.js -->
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery</artifactId>
 			<version>3.3.1</version>
 		</dependency>
+		<!-- bootstrap 前端引用方式src=webjars/bootstrap/4.1.1/js/bootstrap.min.js -->
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>popper.js</artifactId>
@@ -78,27 +85,31 @@
 			<artifactId>bootstrap</artifactId>
 			<version>4.1.1</version>
 		</dependency>
+		<!-- oracle数据库 -->
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc10</artifactId>
 			<version>10.2.0.4.0</version>
 		</dependency>
+		<!-- mybatisplus组件 -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>2.3</version>
 		</dependency>
+		<!-- mybatisplus 自动生成代码 -->
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity-engine-core</artifactId>
 			<version>2.0</version>
 		</dependency>
+		<!-- 热部署 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/cn.afterturn/easypoi-spring-boot-starter -->
+		<!-- 文档操作https://mvnrepository.com/artifact/cn.afterturn/easypoi-spring-boot-starter -->
 		<dependency>
 			<groupId>cn.afterturn</groupId>
 			<artifactId>easypoi-spring-boot-starter</artifactId>
@@ -112,6 +123,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<!-- fork:如果没有该配置，这个devtools不会起作用，即应用不会restart -->
 					<fork>true</fork>
 					<addResources>true</addResources>
 				</configuration>
